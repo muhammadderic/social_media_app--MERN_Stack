@@ -24,5 +24,5 @@ app.listen(5000, () => {
 })
 
 // Connecting to Database
-// mongoose.connect(process.env.MONGO_URL)
-//   .then(console.log("database is connected"));
+mongoose.connect(process.env.MONGO_URL)
+  .then(console.log("database is connected"));
