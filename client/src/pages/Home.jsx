@@ -1,7 +1,13 @@
 import "../styles/home.css";
+import Topbar from "../components/Topbar";
 
 export default function Home() {
   return (
-    <h1>Home</h1>
+    <>
+      <Topbar />
+      <div className="homeContainer">
+
+      </div>
+    </>
   )
 }
