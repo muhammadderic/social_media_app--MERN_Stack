@@ -1,3 +1,6 @@
+import { Users } from "../dummyData";
+import CloseFriend from "./CloseFriend"
+
 export default function Sidebar() {
   return (
     <div className="sidebar">
@@ -81,6 +84,11 @@ export default function Sidebar() {
         </ul>
         <button className="sidebarButton">Show More</button>
         <hr className="sidebarHr" />
+        <ul className="sidebarFriendList">
+          {Users.map((user) => (
+            <CloseFriend key={user.id} user={user} />
+          ))}
+        </ul>
       </div>
     </div>
   )

@@ -1,10 +1,14 @@
+/* ================ */
 /* ===== Home ===== */
+/* ================ */
 .homeContainer {
   width: 100%;
   display: flex;
 }
 
+/* ================== */
 /* ===== Topbar ===== */
+/* ================== */
 .topbarContainer {
   height: 50px;
   width: 100%;
@@ -106,7 +110,9 @@
   cursor: pointer;
 }
 
+/* =================== */
 /* ===== Sidebar ===== */
+/* =================== */
 .sidebar {
   height: calc(100vh - 50px);
   flex: 3;
@@ -157,4 +163,27 @@
 
 .sidebarHr {
   margin: 20px 0;
+}
+
+.sidebarFriendList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* ======================== */
+/* ===== Close Friend ===== */
+/* ======================== */
+.sidebarFriend {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebarFriendImg {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  border-radius: 50%;
+  object-fit: cover;
 }
