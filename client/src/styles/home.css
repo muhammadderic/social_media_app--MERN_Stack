@@ -187,3 +187,158 @@
   border-radius: 50%;
   object-fit: cover;
 }
+
+/* ==================== */
+/* ===== Feed ===== */
+/* ==================== */
+
+.feed {
+  flex: 5.5
+}
+
+.feedWrapper {
+  padding: 20px;
+}
+
+/* ==================== */
+/* ===== RightBar ===== */
+/* ==================== */
+
+.rightbar {
+  flex: 3.5;
+}
+
+.rightbarWrapper {
+  padding: 20px 20px 0 0;
+}
+
+.birthdayContainer {
+  display: flex;
+  align-items: center;
+}
+
+.birthdayImg {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.birthdayText {
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.rightbarAd {
+  width: 100%;
+  margin: 30px 0;
+  border-radius: 10px;
+}
+
+.rightbarTitle {
+  margin-bottom: 20px;
+}
+
+.rightbarFriendList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.rightbarTitle {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.rightbarInfo {
+  margin-bottom: 30px;
+}
+
+.rightbarInfoItem {
+  margin-bottom: 10px;
+}
+
+.rightbarInfoKey {
+  font-weight: 500;
+  margin-right: 15px;
+  color: #555;
+}
+
+.rightbarInfoValue {
+  font-weight: 300;
+}
+
+.rightbarFollowings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.rightbarFollowing {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.rightbarFollowingImg {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.rightbarFollowButton {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #1872f2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.rightbarFollowButton:focus {
+  outline: none;
+}
+
+/* ================== */
+/* ===== Online ===== */
+/* ================== */
+.rightbarFriend {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.rightbarProfileImgContainer {
+  margin-right: 10px;
+  position: relative;
+}
+
+.rightbarProfileImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.rightbarOnline {
+  width: 12px;
+  height: 12px;
+  background-color: limegreen;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  top: -2px;
+  right: 0;
+}
+
+.rightbarUsername {
+  font-weight: 500;
+}
