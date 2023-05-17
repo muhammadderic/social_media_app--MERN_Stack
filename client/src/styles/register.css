@@ -44,6 +44,7 @@
 
 .loginInput {
   height: 50px;
+  margin: 5px 0;
   padding-left: 20px;
   font-size: 18px;
   border-radius: 10px;
@@ -54,8 +55,19 @@
   outline: none;
 }
 
+.errorPassword {
+  margin: 0;
+  color: red;
+  display: flex;
+}
+
+.showErrorPassword {
+  display: none;
+}
+
 .loginButton {
   height: 50px;
+  margin: 5px 0;
   font-size: 20px;
   font-weight: 500;
   background-color: #1775ee;
