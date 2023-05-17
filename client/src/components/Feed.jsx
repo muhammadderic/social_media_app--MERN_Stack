@@ -2,7 +2,7 @@ import { useState } from "react"
 
 import Post from "./Post";
 
-export default function Feed() {
+export default function Feed({ username }) {
   const [posts, setPosts] = useState([]);
 
   return (
