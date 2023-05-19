@@ -1,9 +1,32 @@
-import { useRef } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
+// import { loginCall } from "../apiCall";
 import "../styles/login.css";
+import axios from "axios";
 
 export default function Login() {
-  const email = useRef();
-  const password = useRef();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { dispatch } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  const loginCall = async (userCredential, dispatch) => {
+    dispatch({ type: "LOGIN_START" });
+    try {
+      const res = await axios.post("http://localhost:5000/api/v1/auth/login", userCredential);
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+      navigate("/");
+    } catch (error) {
+      dispatch({ type: "LOGIN_FAILURE", payload: error });
+    }
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await loginCall({ email, password }, dispatch);
+  }
 
   return (
     <div className="login">
@@ -15,13 +38,14 @@ export default function Login() {
           </span>
         </div>
         <div className="loginRight">
-          <form className="loginBox">
+          <form className="loginBox" onSubmit={handleSubmit}>
             <input
               placeholder="Email"
               type="email"
               required
               className="loginInput"
-              ref={email}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <input
               placeholder="Password"
@@ -29,7 +53,8 @@ export default function Login() {
               required
               minLength="6"
               className="loginInput"
-              ref={password}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <button className="loginButton" type="submit">
               "Log In"
