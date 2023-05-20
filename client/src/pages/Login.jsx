@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 // import { loginCall } from "../apiCall";
 import "../styles/login.css";
@@ -60,9 +60,11 @@ export default function Login() {
               "Log In"
             </button>
             <span className="loginForgot">Forgot Password?</span>
-            <button className="loginRegisterButton">
-              "Create a New Account"
-            </button>
+            <Link to="/register">
+              <button className="loginRegisterButton">
+                "Create a New Account"
+              </button>
+            </Link>
           </form>
         </div>
       </div>

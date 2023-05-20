@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/register.css";
 
 export default function Register() {
@@ -84,7 +84,9 @@ export default function Register() {
             <button className="loginButton" type="submit">
               Sign Up
             </button>
-            <button className="loginRegisterButton">Log into Account</button>
+            <Link to="/login">
+              <button className="loginRegisterButton">Log into Account</button>
+            </Link>
           </form>
         </div>
       </div>
