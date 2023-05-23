@@ -1,4 +1,6 @@
+const { Users } = require("../../client/src/dummyData");
 const Post = require("../models/Post");
+const User = require("../models/User");
 
 // Create a Post
 const createPost = async (req, res) => {
@@ -19,6 +21,18 @@ const getPost = async (req, res) => {
     res.status(200).json(post);
   } catch (error) {
     res.status(404).json({ message: error.message });
+  }
+}
+
+// Get Timeline
+const getTimeline = async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.params.id);
+    const userPosts = await Post.find({ userId: currentUser._id });
+    console.log("userPosts: ", userPosts);
+    res.status(200).json(userPosts);
+  } catch (error) {
+    res.status(500).json({ errorNya: error });
   }
 }
 
@@ -45,5 +59,5 @@ const deletePost = async (req, res) => {
 }
 
 module.exports = {
-  createPost, getPost, updatePost, deletePost
+  createPost, getPost, getTimeline, updatePost, deletePost
 }

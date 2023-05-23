@@ -1,4 +1,4 @@
-export const Users = [
+const Users = [
   {
     id: 1,
     profilePicture: "http://placekitten.com/32/32",
@@ -25,3 +25,7 @@ export const Users = [
     username: "Kucing Lima",
   },
 ];
+
+module.exports = {
+  Users
+}
