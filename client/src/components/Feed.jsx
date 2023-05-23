@@ -13,7 +13,6 @@ export default function Feed({ username }) {
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await axios.get("http://localhost:5000/api/v1/posts/timeline/" + user._id);
-      console.log("res: ", res);
       setPosts(
         res.data.sort((post1, post2) => {
           return new Date(post1.createdAt) - new Date(post2.createdAt);

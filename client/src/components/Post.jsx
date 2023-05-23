@@ -6,7 +6,7 @@ export default function Post() {
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            <Link to={`/}`}>
+            <Link to={`/`}>
               <img
                 className="postProfileImg"
                 src="http://placekitten.com/32/32"

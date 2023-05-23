@@ -29,7 +29,6 @@ const getTimeline = async (req, res) => {
   try {
     const currentUser = await User.findById(req.params.id);
     const userPosts = await Post.find({ userId: currentUser._id });
-    console.log("userPosts: ", userPosts);
     res.status(200).json(userPosts);
   } catch (error) {
     res.status(500).json({ errorNya: error });
