@@ -1,4 +1,5 @@
 const express = require("express");
+const multer = require("multer");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
@@ -13,6 +14,25 @@ dotenv.config();
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "public/");
+  },
+  filename: (req, file, cb) => {
+    cb(null, req.body.name);
+  },
+});
+
+const upload = multer({ storage: storage })
+app.post("/api/upload", upload.single("file"),
+  (req, res) => {
+    try {
+      return res.status(200).json("File uploaded successfully");
+    } catch (error) {
+      console.log(error);
+    }
+  })
 
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/users", userRoute);

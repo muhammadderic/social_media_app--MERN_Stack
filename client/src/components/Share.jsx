@@ -1,18 +1,45 @@
+import { useRef } from "react";
 import { useContext, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext"
+import axios from "axios";
 
 export default function Share() {
   const [file, setFile] = useState(null);
   const { user } = useContext(AuthContext);
-  console.log(file)
-  console.log(URL)
+  const description = useRef();
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const newPost = {
+      userId: user._id,
+      description: description.current.value,
+    }
+    if (file) {
+      const formData = new FormData();
+      const fileName = Date.now() + file.name;
+      formData.append("name", fileName);
+      formData.append("file", file);
+      newPost.img = fileName;
+      try {
+        await axios.post("http://localhost:5000/api/upload", formData);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    try {
+      await axios.post("http://localhost:5000/api/v1/posts", newPost);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
           <img src="http://placekitten.com/50/50" alt="" className="shareTopProfileImg" />
-          <input className="shareTopInput" type="text" placeholder={"What's in your mind, " + user.username} />
+          <input className="shareTopInput" type="text" placeholder={"What's in your mind, " + user.username} ref={description} />
         </div>
         <hr className="shareHr" />
         {file && (
@@ -27,7 +54,7 @@ export default function Share() {
             </div>
           </div>
         )}
-        <form className="shareBottom">
+        <form className="shareBottom" onSubmit={submitHandler}>
           <div className="shareOptions">
             <label htmlFor="file" className="shareOption">
               <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-file-upload" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
