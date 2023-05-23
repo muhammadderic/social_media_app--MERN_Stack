@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 
-export default function Post() {
+export default function Post({ post }) {
+  const createdAt = post.createdAt.substring(0, post.createdAt.indexOf("T"));
+  console.log(post);
   return (
     <div className="post">
       <div className="postWrapper">
@@ -14,7 +16,7 @@ export default function Post() {
               />
             </Link>
             <span className="postUsername">username</span>
-            <span className="postDate">May 15, 2023</span>
+            <span className="postDate">{createdAt}</span>
           </div>
           <div className="postTopRight">
             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-dots-vertical" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
@@ -26,8 +28,8 @@ export default function Post() {
           </div>
         </div>
         <div className="postCenter">
-          <span className="postText">description</span>
-          <img className="postImg" src="http://placekitten.com/200/300" alt="" />
+          <span className="postText">{post?.description}</span>
+          <img className="postImg" src={"http://localhost:5000/images/" + post.img} alt="" />
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">
