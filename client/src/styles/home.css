@@ -265,7 +265,7 @@
   align-items: center;
 }
 
-.likeIcon {
+.postBottomLeft .icon {
   width: 24px;
   height: 24px;
   margin-right: 5px;

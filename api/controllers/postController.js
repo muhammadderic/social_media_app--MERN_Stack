@@ -46,6 +46,22 @@ const updatePost = async (req, res) => {
   }
 }
 
+// Like / dislike a Post
+const likeDislikePost = async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (!post.likes.includes(req.body.userId)) {
+      await post.updateOne({ $push: { likes: req.body.userId } })
+      res.status(200).json("The post has been liked");
+    } else {
+      await post.updateOne({ $pull: { likes: req.body.userId } });
+      res.status(200).json("The post has been disliked");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 // Delete a Post
 const deletePost = async (req, res) => {
   const id = req.params.id;
@@ -58,5 +74,5 @@ const deletePost = async (req, res) => {
 }
 
 module.exports = {
-  createPost, getPost, getTimeline, updatePost, deletePost
+  createPost, getPost, getTimeline, updatePost, likeDislikePost, deletePost
 }
