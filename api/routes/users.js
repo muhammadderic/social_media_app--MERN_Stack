@@ -3,7 +3,7 @@ const router = require("express").Router();
 const { getUser, updateUser, deleteUser } = require("../controllers/userController");
 
 // Get a User
-router.get("/:id", getUser);
+router.get("/", getUser);
 
 // Update User
 router.put("/:id", updateUser);
