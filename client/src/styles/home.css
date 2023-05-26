@@ -144,9 +144,16 @@
 }
 
 .sidebarListItem {
+  margin-bottom: 10px;
+  padding: 5px;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.sidebarListItem:hover {
+  background-color: rgb(159, 159, 159);
 }
 
 .sidebarIcon {
@@ -154,11 +161,17 @@
 }
 
 .sidebarButton {
-  width: 150px;
+  width: 100%;
   padding: 10px;
   font-weight: 500;
   border: none;
   border-radius: 5px;
+  box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  cursor: pointer;
+}
+
+.sidebarButton:hover {
+  box-shadow: none;
 }
 
 .sidebarHr {
@@ -178,6 +191,7 @@
   margin-bottom: 15px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .sidebarFriendImg {
