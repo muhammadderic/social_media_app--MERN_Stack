@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 
 export default function Topbar() {
+  const { user } = useContext(AuthContext);
+
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
@@ -53,11 +57,13 @@ export default function Topbar() {
             <span className="topbarIconBadge">1</span>
           </div>
         </div>
-        <img
-          src="http://placekitten.com/32/32"
-          alt="profile"
-          className="topbarImg"
-        />
+        <Link to={"/profile/" + user.username}>
+          <img
+            src="http://placekitten.com/32/32"
+            alt="profile"
+            className="topbarImg"
+          />
+        </Link>
       </div>
     </div>
   )
