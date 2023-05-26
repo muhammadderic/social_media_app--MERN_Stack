@@ -39,12 +39,12 @@ export default function Profile() {
               />
             </div>
             <div className="profileInfo">
-              <h4 className="profileInfoName">username</h4>
-              <span className="profileInfoDesc">this is a description</span>
+              <h4 className="profileInfoName">{user.username}</h4>
+              <span className="profileInfoDesc">{user.description}</span>
             </div>
           </div>
           <div className="profileRightBottom">
-            <Feed username="username" />
+            <Feed username={username} />
             <RightBar user={user} />
           </div>
         </div>
